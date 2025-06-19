@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Simple Info System</title>
+  <style>
+    :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+            --accent-color: #ff006e;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--dark-color);
+        }
+
+    /* Card that holds the form */
+    .form-container{
+      background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            width: 70%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+            position:relative;
+            z-index:1;
+
+    }
+
+    .form-container:hover{
+      box-shadow: 0 100px 100px rgba(0, 0, 0, 0.15);
+
+    }
+
+    h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+        
+    h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+    
+    input, select {
+            width: 92%;
+            padding: 8px 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+
+    input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+            background-color: white;
+        }
+
+    input[type="submit"]{
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    
+    input[type="submit"]:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="submit"]:active{
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Enter Your Information</h1>
+    <form action="process_info.php" method="POST">
+      Full Name:<br>
+      <input type="text" name="fullname" required><br><br>
+
+      Birth Year:<br>
+      <input type="number" name="birthyear" min="1900" max="2025" required><br><br>
+
+      Sleeping Hours per Day:<br>
+      <input type="number" name="sleephours" min="1" max="24" required><br><br>
+
+      City:<br>
+      <select name="city" required>
+        <option value="" disabled selected>Select your city</option>
+          <!-- A -->
+          <optgroup label="A">
+            <option value="Alaminos">Alaminos</option>
+            <option value="Angeles City">Angeles City</option>
+            <option value="Antipolo">Antipolo</option>
+          </optgroup>
+        
+          <!-- B -->
+          <optgroup label="B">
+            <option value="Bacolod">Bacolod</option>
+            <option value="Bago">Bago</option>
+            <option value="Baguio">Baguio</option>
+            <option value="Bais">Bais</option>
+            <option value="Balanga">Balanga</option>
+            <option value="Batac">Batac</option>
+            <option value="Batangas City">Batangas City</option>
+            <option value="Bayawan">Bayawan</option>
+            <option value="Baybay">Baybay</option>
+            <option value="Bayugan">Bayugan</option>
+            <option value="Biñan">Biñan</option>
+            <option value="Bislig">Bislig</option>
+            <option value="Bogo">Bogo</option>
+            <option value="Borongan">Borongan</option>
+            <option value="Butuan">Butuan</option>
+          </optgroup>
+        
+          <!-- C -->
+          <optgroup label="C">
+            <option value="Cabadbaran">Cabadbaran</option>
+            <option value="Cabanatuan">Cabanatuan</option>
+            <option value="Cabuyao">Cabuyao</option>
+            <option value="Cadiz">Cadiz</option>
+            <option value="Cagayan de Oro">Cagayan de Oro</option>
+            <option value="Calamba">Calamba</option>
+            <option value="Calapan">Calapan</option>
+            <option value="Calbayog">Calbayog</option>
+            <option value="Caloocan">Caloocan</option>
+            <option value="Canlaon">Canlaon</option>
+            <option value="Candon">Candon</option>
+            <option value="Carcar">Carcar</option>
+            <option value="Carmona">Carmona</option>
+            <option value="Catbalogan">Catbalogan</option>
+            <option value="Cauayan">Cauayan</option>
+            <option value="Cavite City">Cavite City</option>
+            <option value="Cebu City">Cebu City</option>
+            <option value="Cotabato City">Cotabato City</option>
+          </optgroup>
+        
+          <!-- D -->
+          <optgroup label="D">
+            <option value="Dagupan">Dagupan</option>
+            <option value="Danao">Danao</option>
+            <option value="Dapitan">Dapitan</option>
+            <option value="Dasmariñas">Dasmariñas</option>
+            <option value="Davao City">Davao City</option>
+            <option value="Digos">Digos</option>
+            <option value="Dipolog">Dipolog</option>
+            <option value="Dumaguete">Dumaguete</option>
+          </optgroup>
+        
+          <!-- E -->
+          <optgroup label="E">
+            <option value="El Salvador">El Salvador</option>
+            <option value="Escalante">Escalante</option>
+          </optgroup>
+        
+          <!-- G -->
+          <optgroup label="G">
+            <option value="Gapan">Gapan</option>
+            <option value="General Santos">General Santos</option>
+            <option value="General Trias">General Trias</option>
+            <option value="Gingoog">Gingoog</option>
+            <option value="Guihulngan">Guihulngan</option>
+          </optgroup>
+        
+          <!-- H -->
+          <optgroup label="H">
+            <option value="Himamaylan">Himamaylan</option>
+          </optgroup>
+        
+          <!-- I -->
+          <optgroup label="I">
+            <option value="Ilagan">Ilagan</option>
+            <option value="Iligan">Iligan</option>
+            <option value="Iloilo City">Iloilo City</option>
+            <option value="Imus">Imus</option>
+            <option value="Iriga">Iriga</option>
+            <option value="Isabela City">Isabela City</option>
+          </optgroup>
+        
+          <!-- K -->
+          <optgroup label="K">
+            <option value="Kabankalan">Kabankalan</option>
+            <option value="Kidapawan">Kidapawan</option>
+            <option value="Koronadal">Koronadal</option>
+          </optgroup>
+        
+          <!-- L -->
+          <optgroup label="L">
+            <option value="La Carlota">La Carlota</option>
+            <option value="Lamitan">Lamitan</option>
+            <option value="Laoag">Laoag</option>
+            <option value="Lapu-Lapu">Lapu-Lapu</option>
+            <option value="Las Piñas">Las Piñas</option>
+            <option value="Legazpi">Legazpi</option>
+            <option value="Ligao">Ligao</option>
+            <option value="Lipa">Lipa</option>
+            <option value="Lucena">Lucena</option>
+          </optgroup>
+        
+          <!-- M -->
+          <optgroup label="M">
+            <option value="Maasin">Maasin</option>
+            <option value="Mabalacat">Mabalacat</option>
+            <option value="Makati">Makati</option>
+            <option value="Malabon">Malabon</option>
+            <option value="Malaybalay">Malaybalay</option>
+            <option value="Malolos">Malolos</option>
+            <option value="Mandaluyong">Mandaluyong</option>
+            <option value="Mandaue">Mandaue</option>
+            <option value="Manila">Manila</option>
+            <option value="Marawi">Marawi</option>
+            <option value="Marikina">Marikina</option>
+            <option value="Masbate City">Masbate City</option>
+            <option value="Mati">Mati</option>
+            <option value="Meycauayan">Meycauayan</option>
+            <option value="Muñoz">Muñoz</option>
+            <option value="Muntinlupa">Muntinlupa</option>
+          </optgroup>
+        
+          <!-- N -->
+          <optgroup label="N">
+            <option value="Naga (Camarines Sur)">Naga (Camarines Sur)</option>
+            <option value="Naga (Cebu)">Naga (Cebu)</option>
+            <option value="Navotas">Navotas</option>
+            <option value="Olongapo">Olongapo</option>
+            <option value="Ormoc">Ormoc</option>
+            <option value="Oroquieta">Oroquieta</option>
+            <option value="Ozamiz">Ozamiz</option>
+          </optgroup>
+        
+          <!-- P -->
+          <optgroup label="P">
+            <option value="Pagadian">Pagadian</option>
+            <option value="Palayan">Palayan</option>
+            <option value="Panabo">Panabo</option>
+            <option value="Parañaque">Parañaque</option>
+            <option value="Passi">Passi</option>
+            <option value="Puerto Princesa">Puerto Princesa</option>
+          </optgroup>
+        
+          <!-- Q -->
+          <optgroup label="Q">
+            <option value="Quezon City">Quezon City</option>
+          </optgroup>
+        
+          <!-- R -->
+          <optgroup label="R">
+            <option value="Roxas City">Roxas City</option>
+          </optgroup>
+        
+          <!-- S -->
+          <optgroup label="S">
+            <option value="Sagay">Sagay</option>
+            <option value="Samal">Samal</option>
+            <option value="San Carlos (Negros Occidental)">San Carlos (Negros Occidental)</option>
+            <option value="San Carlos (Pangasinan)">San Carlos (Pangasinan)</option>
+            <option value="San Fernando (La Union)">San Fernando (La Union)</option>
+            <option value="San Fernando (Pampanga)">San Fernando (Pampanga)</option>
+            <option value="San Jose">San Jose</option>
+            <option value="San Jose del Monte">San Jose del Monte</option>
+            <option value="San Juan">San Juan</option>
+            <option value="Santiago">Santiago</option>
+            <option value="Sarangani">Sarangani</option>
+            <option value="Siquijor">Siquijor</option>
+            <option value="Sorsogon City">Sorsogon City</option>
+            <option value="Surigao City">Surigao City</option>
+          </optgroup>
+        
+          <!-- T -->
+          <optgroup label="T">
+            <option value="Tabaco">Tabaco</option>
+            <option value="Tabuk">Tabuk</option>
+            <option value="Tacloban">Tacloban</option>
+            <option value="Tacurong">Tacurong</option>
+            <option value="Tagaytay">Tagaytay</option>
+            <option value="Tagbilaran">Tagbilaran</option>
+            <option value="Tagum">Tagum</option>
+            <option value="Talisay (Cebu)">Talisay (Cebu)</option>
+            <option value="Talisay (Negros Occidental)">Talisay (Negros Occidental)</option>
+            <option value="Tanauan">Tanauan</option>
+            <option value="Tandag">Tandag</option>
+            <option value="Tangub">Tangub</option>
+            <option value="Tanjay">Tanjay</option>
+            <option value="Tarlac City">Tarlac City</option>
+            <option value="Tayabas">Tayabas</option>
+          </optgroup>
+        
+          <!-- U -->
+          <optgroup label="U">
+            <option value="Tuguegarao">Tuguegarao</option>
+            <option value="Urdaneta">Urdaneta</option>
+          </optgroup>
+        
+          <!-- V -->
+          <optgroup label="V">
+            <option value="Valencia">Valencia</option>
+            <option value="Valenzuela">Valenzuela</option>
+            <option value="Victorias">Victorias</option>
+            <option value="Vigan">Vigan</option>
+          </optgroup>
+        
+          <!-- W, X, Y, Z -->
+          <optgroup label="Z">
+            <option value="Zamboanga City">Zamboanga City</option>
+            <option value="Zamboanga del Norte">Zamboanga del Norte</option>
+            <option value="Zamboanga del Sur">Zamboanga del Sur</option>
+            <option value="Zamboanga Sibugay">Zamboanga Sibugay</option>
+          </optgroup>
+        </select>
+        
+      </select><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>
